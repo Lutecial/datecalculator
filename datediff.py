@@ -61,6 +61,6 @@ def getDifference(dt1, dt2):
 
 # Driver program
 dt1 = Date(3, 8, 1983)
-dt2 = Date(1, 3, 1989)
+dt2 = Date(3, 1, 1989)
 
 print(getDifference(dt1, dt2), "days")

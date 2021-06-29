@@ -14,7 +14,7 @@ class Date:
 
     # define leap year
     def isBisextile(self):
-        return True if self.year%4 == 0 else False
+        return True if self.year%4 == 0 or self.year%400 == 0 and self.year%100 != 0 else False
 
 firstEntry = input("Enter first date: \n").split("/")
 
@@ -33,23 +33,21 @@ firstdate = Date(year1, month1, date1)
 
 seconddate = Date(year2, month2, date2)
 
-# year is different
-def yeardiff():
-    return True if year1 != year2 else False
-# month is different
-def monthdiff():
-    return True if month1 != month2 else False
-# date is different
-def datediff():
-    return True if date1 != date2 else False
-
-
-    # while datediff():
-    #     if date1 < date2:
-    #         date1 += 1
-    #     elif date1 > date2:
-    #         date2 += 1
-    #     days += 1
+days = abs(date2 - date1) - 1
+monthdiff = abs(month2 - month1)
+for i in range(0, monthdiff):
+    days += Days_in_Month[month1 -1]
+    month1 += 1
+    if month1 == 12:
+        month1 = 1
+        year1 += 1
+yeardiff = abs(year2 - year1)
+while yeardiff > 0:
+    yeardiff -= 1
+    days += 365
+    if firstdate.isBisextile():
+        days += 1
+print(days, "days")
 
 
 # for x in secondEntry:
