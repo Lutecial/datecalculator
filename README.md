@@ -55,10 +55,21 @@ cd python-3.9.6
 ```
 sudo make altinstall or sudo make install
 ```
+
 ### Step two: clone the repo
+clone the repo to your prefered location
 ```
-git clone 
+git clone https://github.com/Lutecial/datecalculator.git
 ```
+### Step three: using the application
+
+>you might want to `chmod +x` on datediff.py, datetimelib.py, test.py and userInput.py just for convience sake
+
+- run `./test.py` to see the data sets test against the application
+- run `./userInput.py` for interactive cli prompt to type in two dates for calculation(the application will close automatically after display the result.)
+- open datediff.py to see the source code for calculation
+- run `./datetimelib.py` to validate the result if you are interested (no error validation on this one)
+
 
 
 
