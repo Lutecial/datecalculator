@@ -3,86 +3,73 @@
 # define days for each month
 Days_in_Month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-days = int()
-
-# define date
+# define a date
 class Date:
-    def __init__(self, year, month, date):
-        self.year = year
+    def __init__(self, day, month, year):
+        self.day = day
         self.month = month
-        self.date = date
+        self.year = year
 
-    # define leap year
-    def isBisextile(self):
-        return True if self.year%4 == 0 or self.year%400 == 0 and self.year%100 != 0 else False
+# define leap year rule:
+# The year must be evenly divisible by 4
+# If the year can also be evenly divided by 100, it is not a leap year
+# unless...
+# The year is also evenly divisible by 400. Then it is a leap year.
 
-firstEntry = input("Enter first date: \n").split("/")
+def countLeapYear(x):
+    yrs = x.year
+    if (x.month <= 2):
+        yrs -= 1
+    return int(yrs / 4) - int(yrs / 100) + int(yrs / 400)
 
-secondEntry = input("Enter second date: \n").split("/")
+def diffCalculation(date1, date2):
+    year1 = date1.year
+    year2 = date2.year
+    yearCount = int()
+    p1 = date1.year * 365 + date1.day
+    for i in range (0, date1.month - 1):
+        p1 += Days_in_Month[i]
+    p1 += countLeapYear(date1)
 
-year1 = int(firstEntry[0])
-year2 = int(secondEntry[0])
+    p2 = date2.year * 365 + date2.day
+    for i in range (0, date2.month - 1):
+        p2 += Days_in_Month[i]
+    p2 += countLeapYear(date2)
 
-month1 = int(firstEntry[1])
-month2 = int(secondEntry[1])
+    minPosition = min(p1,p2)
+    maxPosition = max(p1,p2)
 
-date1 = int(firstEntry[2])
-date2 = int(secondEntry[2])
+    return maxPosition - minPosition - 1
 
-firstdate = Date(year1, month1, date1)
+while True:
+    print("Please enter first date:")
+    entry = input().split("/")
+    try:
+        day1 = int(entry[0])
+        month1 = int(entry[1])
+        year1 = int(entry[2])
+    except:
+        print("error, please enter the right format")
+        continue
+    if day1 > Days_in_Month[month1 -1]:
+        print("please check the date on the month and try enter the correct date.")
+        continue
+    break
+while True:
+    print("Please enter second date:")
+    entry = input().split("/")
+    try:
+        day2 = int(entry[0])
+        month2 = int(entry[1])
+        year2 = int(entry[2])
+    except:
+        print("error, please enter the right format")
+        continue
+    if day2 > Days_in_Month[month2 -1]:
+        print("please check the date on the month and try enter the correct date.")
+        continue
+    break
 
-seconddate = Date(year2, month2, date2)
-
-days = abs(date2 - date1) - 1
-monthdiff = abs(month2 - month1)
-for i in range(0, monthdiff):
-    days += Days_in_Month[month1 -1]
-    month1 += 1
-    if month1 == 12:
-        month1 = 1
-        year1 += 1
-yeardiff = abs(year2 - year1)
-while yeardiff > 0:
-    yeardiff -= 1
-    days += 365
-    if firstdate.isBisextile():
-        days += 1
-print(days, "days")
-
-
-# for x in secondEntry:
-#     dateEntry.append(x)
-
-# print (dateEntry)
-
-# yeardiff = abs(secondfulldate.year - firstfulldate.year)
-
-# monthdiff = abs(secondfulldate.month - firstfulldate.month)
-
-# datediff = abs(secondfulldate.date - firstfulldate.date)
-
-# while firstfulldate.year !=
-
-    # if secondfulldate.month - firstfulldate.month == 0:
-    #     days = secondfulldate.date - firstfulldate.date - 1
-    #     print("days are: {}".format(days))
-
-# days = int(input("Enter number of days: \n"))
-
-# while days >= 0:
-#     if firstdate.isBisextile():
-#         Days_in_Month[1] = 29
-#     else:
-#         Days_in_Month[1] = 28
-
-#     firstdate.date += 1
-
-#     if firstdate.date > int(Days_in_Month[firstdate.month-1]):
-#         firstdate.month += 1
-#         if firstdate.month > 12:
-#             firstdate.year += 1
-#             firstdate.month = 1
-#         firstdate.date = 1
-#     days -= 1
-
-# print("{}/{}/{}".format(firstdate.date,firstdate.month,firstdate.year))
+firstdate = Date(day1, month1, year1)
+seconddate = Date(day2, month2, year2)
+print(diffCalculation(firstdate, seconddate), "days")
