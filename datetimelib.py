@@ -1,5 +1,4 @@
-# Python3 program to find number of days
-# between two given dates
+# Python3 program to find number of days between two given dates
 from datetime import date
 
 
