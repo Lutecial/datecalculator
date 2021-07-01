@@ -2,7 +2,7 @@
 
 ## **Description**
 
->***This application requires Python 3.9.6 to run properly and also assume the user is using Ubuntu or at least linux with aptitute installed***
+>***This application requires Python 3.9.6 to run properly and also assume the user is using Ubuntu or at least linux with APT***
 
 This is a CLI application implemented in Python using only primitives, built-in language functions and no external pip dependencies. The application accepts input from stdin. User can also execute "userInput.py" to enter date in a cli prompt, this application also validate input.
 
