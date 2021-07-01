@@ -19,7 +19,8 @@ while True:
             continue
         if month != 2:
             if day > Days_in_Month[month - 1]:
-                print("Please check the date on the month and try enter the correct date.")
+                print(
+                    "Please check the date on the month and try enter the correct date.")
                 continue
         elif month == 2:
             if not isLeapYear(year):
@@ -45,7 +46,8 @@ while True:
             continue
         if month != 2:
             if day > Days_in_Month[month - 1]:
-                print("Please check the date on the month and try enter the correct date.")
+                print(
+                    "Please check the date on the month and try enter the correct date.")
                 continue
         elif month == 2:
             if not isLeapYear(year):
@@ -58,7 +60,7 @@ while True:
         if month > 12 or 1900 > year > 2999:
             print("invalid date entry, the date should between 01/01/1900 and 31/12/2999")
             continue
-        
+
         break
 
 print(diffCalculation(firstdate, seconddate), "days")

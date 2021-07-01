@@ -59,6 +59,6 @@ def diffCalculation(date1, date2):
 
     # calculate the position difference (date difference) between two entries. minus 1 day for not counting two entry date.
     days = maxPosition - minPosition - 1
-    if days <0:
+    if days < 0:
         days = 0
     return days

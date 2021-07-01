@@ -18,12 +18,12 @@ Testing data sets are followed:
 
 ## **File Structure**
 
-| File      | Description |
-| ----------- | ----------- |
-| datediff.py      | function module       |
-| test.py   | test file        |
-| userInput.py   | interation cli prompt with error handling        |
-| datetimelib.py   | another sample using python's built-in datetime library       |
+| File           | Description                                             |
+| -------------- | ------------------------------------------------------- |
+| datediff.py    | function module                                         |
+| test.py        | test file                                               |
+| userInput.py   | interation cli prompt with error handling               |
+| datetimelib.py | another sample using python's built-in datetime library |
 
 ## **Calculation Logic**
 
