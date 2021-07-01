@@ -34,7 +34,7 @@ The application will calculate each date entry against the most initial date whi
 The application will always using the bigger number (later in the timeline) minus the smaller number (ealier in the timeline) to output the final days between the two dates. 
 
 ## **Instruction**
-### Step one: install Python 3.6.9
+### Step one: install Python 3.9.6
 - Update apt: `sudo apt update`
 
 - Enter the following to install the required packages for Python:
