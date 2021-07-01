@@ -28,3 +28,12 @@ if diffCalculation(date1, date2) == 2036:
 else:
     print("error")
 # print(diffCalculation(date1, date2), "days")
+
+# test unit set 4, same day test, shoud return "0"
+date1 = Date(1, 1, 2001)
+date2 = Date(1, 1, 2001)
+if diffCalculation(date1, date2) == 0:
+    print("Pass")
+else:
+    print("error")
+# print(diffCalculation(date1, date2), "days")
